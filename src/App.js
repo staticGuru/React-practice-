@@ -1,75 +1,31 @@
-import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import React from "react";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import "./App.css";
+import Search from "./Search";
+
+import Register from "./Register";
+// import Country from "./Country";
+import Dropdown from "./Dropdown";
+import Country from "./Country";
+import MultiStepForm from "./MultiStepForm";
+
+import FetchApi from "./FetchApi";
 
 const App = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
-      setUser(foundUser);
-    }
-  }, []);
-
-  // logout the user
-  const handleLogout = () => {
-    setUser({});
-    setUsername("");
-    setPassword("");
-    localStorage.clear();
-  };
-
-  // login the user
-  const handleSubmit =  e => {
-    e.preventDefault();
-    const user = { username, password };
-    // send the username and password to the server
-    // const response = await axios.post(
-    //   "http://blogservice.herokuapp.com/api/login",
-    //   user
-    // );
-    // set the state of the user
-    setUser(user);
-    // store the user in localStorage
-    localStorage.setItem(user.username, JSON.stringify(user));
-  };
-
-  // if there's a user show the message below
-  if (user) {
-    return (
-      <div>
-        {user.username} is loggged in
-        <button onClick={handleLogout}>logout</button>
-      </div>
-    );
-  }
-
-  // if there's no user, show the login form
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          value={username}
-          placeholder="enter a username"
-          onChange={({ target }) => setUsername(target.value)}
-        />
-        <div>
-          <label htmlFor="password">password: </label>
-          <input
-            type="password"
-            value={password}
-            placeholder="enter a password"
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Register} />
+        <Route exact path={"/Search"} component={Search} />
+        <Route path={"/Search/:id"} component={Search} />
+        <Route path={"/dropdown"} component={Dropdown} />
+        <Route path={"/country"} component={Country} />
+        <Route path={"/multistepform"} component={MultiStepForm} />
+        <Route path={"/autosuggestion"} component={FetchApi} />
+      </Switch>
+    </Router>
   );
 };
 

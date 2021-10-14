@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(27, 152, 88, 0.421);
+  height: 100vh;
+}
+.container > form {
+  position: relative;
+
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.inputvalue {
+  width: 500px;
+  line-height: 20px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-width: none;
+  overflow: hidden;
+  outline: none;
+}
+p {
+  font-size: 18px;
+}

@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.inputvalue {
+  width: 500px;
+  line-height: 20px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-width: none;
+  overflow: hidden;
+  outline: none;
+}
+.container1 {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(47, 209, 144, 0.149);
+  height: 100vh;
+}
+.register {
+  /* background-color:rgba(31, 81, 55, 0.687); */
+}
